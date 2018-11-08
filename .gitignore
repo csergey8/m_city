@@ -86,3 +86,5 @@ yarn-error.log*
 
 #images 
 *.png
+
+firebase.js
