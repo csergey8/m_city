@@ -77,3 +77,61 @@ export const PlayerCard = ({ number, name, lastname, bck}) => {
     </div>
   );
 }
+
+export const FormField = ({ formData, id, change }) => {
+
+    const showError = () => {
+      let errorMsg = <div className="error_label">
+                        {
+                          formData.validation && !formData.valid ? 
+                              formData.validationMsg
+                          :null
+                        }
+
+                      </div>
+      return errorMsg
+    }
+
+    const renderTemplate = () => {
+      let formTemplate = null;
+
+      switch(formData.element){
+        case('input'):
+          formTemplate = (
+            <div>
+              <input {...formData.config} value={formData.value} onChange={(e) => change({e, id}) }/>
+              {showError()}
+            </div>
+          )
+        break;
+        default:
+          formTemplate = null;
+      }
+       return formTemplate  
+    }
+
+    return (
+      <div>
+        {renderTemplate()}
+      </div>
+    )
+}
+
+export const validate = (element) => {
+  let error = [true, ''];
+
+  if(element.validation.email) {
+    const valid = /[^@]+@[^\.]+\..+/g.test(element.value);
+    const message = `${!valid ? 'Enter valid email' : null}`;
+    error = !valid ? [valid, message] : [valid, message];
+  }
+
+  if(element.validation.required){
+    const valid = element.value.trim() !== '';
+    const message = `${!valid ? 'This field is required' : null}`;
+    if(!valid) {
+      error= [valid, message]
+    }
+  } 
+  return error
+}
