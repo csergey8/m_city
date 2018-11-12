@@ -59,7 +59,9 @@ export default class SignIn extends Component {
           dataToSubmit.password
         )
         .then(() => {
-          this.props.history.push('/dashboard')
+          this.props.history.push('/dashboard');
+          console.log(this.props);
+          this.props.history.push('/dashboard');
         })
         .catch((err) => {
           this.setState({
