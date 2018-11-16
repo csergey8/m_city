@@ -46,12 +46,12 @@ export default class AdminPlayers extends Component {
                     this.state.players.map((player, i) => (
                       <TableRow key={i}>
                         <TableCell>
-                          <Link to={`/admin_players/add_players/${player.id}`}>
+                          <Link to={`/admin_players/add_player/${player.id}`}>
                             {player.name}
                           </Link>
                         </TableCell>
                         <TableCell>
-                          <Link to={`/admin_players/add_players/${player.id}`}>
+                          <Link to={`/admin_players/add_player/${player.id}`}>
                             {player.lastname}
                           </Link>
                         </TableCell>

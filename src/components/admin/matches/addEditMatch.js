@@ -198,6 +198,7 @@ export default class AddEditMatch extends Component {
         dataToSubmit['awayThmb'] = team.thmb
       }
     })
+    console.log(dataToSubmit);
 
     if(formIsValid) {
       if(this.state.formType === 'Edit Match') {
