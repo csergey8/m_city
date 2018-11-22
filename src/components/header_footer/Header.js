@@ -23,6 +23,9 @@ export default class Header extends Component {
               <Logo link linkTo='/' width="75px" height="75px" />
             </div>
           </div>
+            <Link to="/dashboard">
+              <Button color="inherit">Dashboard</Button>
+            </Link>
             <Link to="/the_team">
               <Button color="inherit">The team</Button>
             </Link>
